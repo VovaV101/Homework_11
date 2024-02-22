@@ -3,16 +3,11 @@ from typing import List
 from fastapi import Path, Depends, HTTPException, Query, status, APIRouter
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
-from src.database.db import get_db
-from src.repository import contacts as repository_contacts
-from src.shemas import ContactFavoriteModel, ContactModel, ContactResponse
+from ..database.db import get_db
+from ..repository import contacts as repository_contacts
+from ..schemas import ContactFavoriteModel, ContactModel, ContactResponse
 
 router = APIRouter(prefix="/contacts", tags=["contacts"])
-
-
-
-
-
 
 
 @router.get("/search", response_model=List[ContactResponse])

@@ -14,9 +14,11 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
+
 @app.get("/", response_class=HTMLResponse)
 async def main(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "title": "HW11 APP"})
+
 
 @app.get("/api/healthchecker")
 def healthchecker(db: Session = Depends(get_db)):
@@ -34,6 +36,7 @@ def healthchecker(db: Session = Depends(get_db)):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Error connecting to the database",
         )
+
 
 app.include_router(contacts.router, prefix="/api")
 

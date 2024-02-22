@@ -8,7 +8,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import sessionmaker
 
 # Завантажуємо змінні середовища з файлу .env
-ENV_FILE = Path(__file__).resolve().parent.parent.parent.parent / ".env"
+ENV_FILE = Path(__file__).resolve().parent.parent.parent.joinpath(".env")
 
 load_dotenv(ENV_FILE)
 
