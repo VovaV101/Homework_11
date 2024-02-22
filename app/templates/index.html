@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>GO IT, HOME WORK 11</title>
+    <title>GO IT, HOME WORK 12</title>
     <link rel="icon" href="{{ url_for('static', path='/favicon.ico') }}">
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -38,8 +38,6 @@
       <h3 class="float-md-start mb-0">GoIT WEB</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" target="_blank" href="https://github.com/lexxai/goit_python_web_hw_11/">Features</a>
-        <a class="nav-link" target="_blank" href="https://github.com/lexxai/goit_python_web_hw_11">Contact</a>
       </nav>
     </div>
   </header>
@@ -52,53 +50,41 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
       </div>
       <div class="carousel-inner" style="padding: 50px; height: 250px;">
         <div class="carousel-item active">
           <h4>Мета цього домашнього завдання</h4>
           <p class="lead">
-            Cтворити REST API для зберігання та управління контактами. API повинен бути побудований з використанням інфраструктури FastAPI та використовувати SQLAlchemy для управління базою даних.    <p class="lead">
+            У цьому домашньому завданні ми продовжуємо допрацьовувати наш REST API застосунок із домашнього завдання 11.    <p class="lead">
          </p>
         </div>
         <div class="carousel-item">
-          <h4>Контакти повинні зберігатися в базі даних та містити в собі наступну інформацію:</h4>
+          <h4>Завдання</h4>
           <p class="lead">
-            - Ім'я
-            - Прізвище
-            - Електронна адреса
-            - Номер телефону
-            - День народження
-            - Додаткові дані (необов'язково)
+            - реалізуйте механізм аутентифікації в застосунку;
+            - реалізуйте механізм авторизації за допомогою JWT токенів,
+              щоб усі операції з контактами проводились лише зареєстрованими користувачами;
+            - користувач має доступ лише до своїх операцій з контактами.
+
          </p>
         </div>
         <div class="carousel-item">
-          <h4>API повинен мати можливість виконувати наступні дії:</h4>
+          <h4>Загальні вимоги</h4>
           <p class="lead">
-            - Створити новий контакт
-            - Отримати список всіх контактів
-            - Отримати один контакт за ідентифікатором
-            - Оновити існуючий контакт
-            - Видалити контакт
+            - При реєстрації, якщо користувач вже існує з таким email,
+             сервер поверне помилку HTTP 409 Conflict;
+            - Сервер хешує пароль і не зберігає його у відкритому вигляді в базі даних;
+            - У разі успішної реєстрації користувача сервер повинен повернути HTTP статус відповіді 201 Created
+              та дані нового користувача;
+            - Для всіх операцій POST створення нового ресурсу, сервер повертає статус 201 Created;
           </p>
         </div>
         <div class="carousel-item">
-          <h4>На придачу до базового функціоналу CRUD API також повинен мати наступні функції:</h4>
+          <h4>Продовжуємо загальні вимоги:</h4>
           <p class="lead">
-            - Контакти повинні бути доступні для пошуку за іменем, прізвищем чи адресою електронної пошти (Query).
-            - API повинен мати змогу отримати список контактів з днями народження на найближчі 7 днів.
-          </p>
-        </div>
-        <div class="carousel-item">
-          <h4> Загальні вимоги:</h4>
-          <p class="lead">
-            1. Використання фреймворку FastAPI для створення API
-            2. Використання ORM SQLAlchemy для роботи з базою даних
-            3. В якості бази даних слід використовувати PostgreSQL.
-            4. Підтримка CRUD операцій для контактів
-            5. Підтримка зберігання дати народження контакту
-            6. Надання документів для API
-            7. Використання модуля перевірки достовірності даних Pydantic
+            - При операції POST - аутентифікація користувача, сервер приймає запит із даними користувача (email, пароль) у тілі запиту;
+            - Якщо користувач не існує або пароль не збігається, повертається помилка HTTP 401 Unauthorized;
+            - Механізм авторизації за допомогою JWT токенів реалізований парою токенів: токена доступу access_token і токен оновлення refresh_token
           </p>
         </div>
       </div>
